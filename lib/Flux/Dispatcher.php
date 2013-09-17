@@ -101,9 +101,10 @@ class Flux_Dispatcher {
 		$baseURI = Flux::config('BaseURI');
 		
 		// Only a Valid Integer
-		if(!preg_match('/^[\-+]?[0-9]+$/', $params->get('isAjax'))){
+		if(!preg_match('/^[\-+]?[0-9]+$/', $params->get('isAjax'))) {
 			$isAjax = 0;
-		}else{
+		}
+        else {
 			$isAjax = $params->get('isAjax');
 		}
 		
