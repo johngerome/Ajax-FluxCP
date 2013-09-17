@@ -3,7 +3,7 @@
 // the default, and should be changed as needed.
 return array(
 	'ServerAddress'        => 'localhost:80',              // This value is the hostname:port under which Flux runs. (e.g., example.com or example.com:80)
-	'BaseURI'              => 'RO/gerome-fluxcp',          // The base URI is the base web root on which your application lies.
+	'BaseURI'              => 'flux/Ajax-FluxCP/',          // The base URI is the base web root on which your application lies.
 	'InstallerPassword'    => 'secretpassword',         // Installer/updater password.
 	'RequireOwnership'     => true,                     // Require the executing user to be owner of the FLUX_ROOT/data/ directory tree? (Better for security)
 	                                                    // WARNING: This will be mostly IGNORED on non-POSIX-compliant OSes (e.g. Windows).
@@ -17,7 +17,8 @@ return array(
 	'ItemIconNameFormat'   => '%d.gif',                 // The filename format for item icons (defaults to {itemid}.gif).
 	'ItemImageNameFormat'  => '%d.png',                 // The filename format for item images (defaults to {itemid}.png).
 	'MonsterImageNameFormat' => '%d.gif',               // The filename format for monster images (defaults to {monsterid}.gif).
-	'ForceEmptyEmblem'     => false,                    // Forcefully display empty guild emblems, helpful when you don't have GD2 installed.
+	'JobImageNameFormat'   => '%d_%s.png',              // The filename format for job images (defaults to {jobid}_{gender}.png where {gender} is either M or F). 
+    'ForceEmptyEmblem'     => false,                    // Forcefully display empty guild emblems, helpful when you don't have GD2 installed.
 	'EmblemCacheInterval'  => 12,                       // Hourly interval to re-cache guild emblems (set to 0 to disable emblem cache).
 	'SessionCookieExpire'  => 48,                       // Duration in hours.
 	'AdminMenuGroupLevel'  => AccountLevel::LOWGM,      // The starting group ID for which module actions are moved into the admin menu for display.

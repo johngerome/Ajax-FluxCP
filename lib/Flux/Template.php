@@ -1358,6 +1358,16 @@ class Flux_Template {
 		return file_exists($path) ? $link : false;
 	}
 	
+    /**
+ 	 *
+ 	 */
+    public function jobImage($jobID, $gender)
+    {
+        $path = sprintf(FLUX_DATA_DIR."/jobs/images/".Flux::config('JobImageNameFormat'), $jobID, $gender);
+        $link = preg_replace('&/{2,}&', '/', "{$this->basePath}/$path");
+        return file_exists($path) ? $link : false;
+    }
+
 	/**
 	 *
 	 */
