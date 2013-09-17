@@ -201,12 +201,13 @@ class Flux_Template {
 	public $referer;
 	
 	/**
-	 * Construct new template onbject.
+	 * Ajax Request
 	 *
-	 * @param Flux_Config $config
-	 * @access public
+	 * @access protected
 	 */
-	 public $is_ajax;
+	 protected $isAjax;
+     
+     
 	public function __construct(Flux_Config $config)
 	{
 		$this->isAjax					 = $config->get('isAjax');
@@ -294,7 +295,7 @@ class Flux_Template {
 		}
 		
 		$this->headerPath 	 = sprintf('%s/%s.php', $this->themePath, $this->headerName);
-		$this->subHeaderPath = sprintf('%s/main/%s.php', $this->themePath, $this->subHeaderName);
+        $this->subHeaderPath = sprintf('%s/main/%s.php', $this->themePath, $this->subHeaderName);
 		$this->footerPath 	 = sprintf('%s/%s.php', $this->themePath, $this->footerName);
 		$this->url        	 = $this->url($this->moduleName, $this->actionName);
 		$this->urlWithQS  	 = $this->url;
@@ -380,7 +381,11 @@ class Flux_Template {
 			include $this->headerPath;
 		}
 		
-		include $this->subHeaderPath;
+        //We don't include subheader in installer theme
+        if ($this->moduleName != 'install') {
+            include $this->subHeaderPath;
+        }
+		
 		include $this->viewPath;
 	
 		if (file_exists($this->footerPath) && ($this->isAjax == 0 or $this->isAjax > 1)) {
