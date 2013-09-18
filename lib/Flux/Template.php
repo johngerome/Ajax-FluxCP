@@ -1,6 +1,7 @@
 <?php
 require_once 'Flux/Paginator.php';
 
+
 /**
  * The template is mostly responsible for the presentation logic of things, but
  * currently it also carries the task of executing the action files, which are
@@ -207,9 +208,11 @@ class Flux_Template {
 	 */
 	 protected $isAjax;
      
+     protected $templateAssets;
      
 	public function __construct(Flux_Config $config)
 	{
+	    $this->themeAssets = new Flux_TemplateAssets($config);
 		$this->isAjax					 = $config->get('isAjax');
 		$this->params                    = $config->get('params');
 		$this->basePath                  = $config->get('basePath');

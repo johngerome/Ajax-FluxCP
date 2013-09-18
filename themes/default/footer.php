@@ -32,23 +32,13 @@
 	<i class="icon-circle-arrow-up" ></i>
 </a>
 
-	<script src="<?php echo $this->themePath('js/jquery-1.8.3.min.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/flux.datefields.js') ?>"></script>'
-	<script src="<?php echo $this->themePath('js/fluxcp.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.alerts.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.clearing.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.cookie.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.dropdown.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.forms.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.joyride.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.magellan.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.orbit.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.placeholder.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.reveal.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.section.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.tooltips.js') ?>"></script>
-	<script src="<?php echo $this->themePath('js/foundation/foundation.topbar.js') ?>"></script>
+	<?php
+        $this->themeAssets->add_js('jquery-1.8.3.min.js');
+        $this->themeAssets->add_js('foundation.js');
+        $this->themeAssets->add_js('flux.datefields.js');
+        $this->themeAssets->add_js('fluxcp.js');
+        echo $this->themeAssets->compile_js();
+    ?>
 	
 	<script>
 	$(document).foundation();
@@ -65,7 +55,7 @@
 		
 		// Preload spinner image.
 		var spinner = new Image();
-		spinner.src = '<?php echo $this->themePath('img/spinner.gif') ?>';
+		spinner.src = '<?php echo $this->themePath('assets/img/spinner.gif') ?>';
 		
 		function refreshSecurityCode(imgSelector){
 			$(imgSelector).attr('src', spinner.src);

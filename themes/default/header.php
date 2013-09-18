@@ -13,17 +13,19 @@
 		
 		<title><?php echo Flux::config('SiteTitle'); if (isset($title)) echo ": $title" ?></title>
 		
-		<link rel="stylesheet" href="<?php echo $this->themePath('css/normalize.css') ?>" />
-		<link rel="stylesheet" href="<?php echo $this->themePath('css/foundation.css') ?>" />
-		<link rel="stylesheet" href="<?php echo $this->themePath('css/style.css') ?>" />
-		
-		<link rel="stylesheet" href="<?php echo $this->themePath('css/font-awesome.min.css') ?>" />
-		<link rel="stylesheet" href="<?php echo $this->themePath('css/flux/unitip.css') ?>"  />
-		<?php if (Flux::config('EnableReCaptcha')): ?>
-		<link rel="stylesheet" href="<?php echo $this->themePath('css/flux/recaptcha.css') ?>" />
-		<?php endif ?>
-
-		<script src="<?php echo $this->themePath('js/vendor/custom.modernizr.js') ?>"></script>
+        <?php
+        
+        $this->themeAssets->add_css('foundation.css');
+        $this->themeAssets->add_css('style.css');
+        $this->themeAssets->add_css('font-awesome.min.css');
+        $this->themeAssets->add_css('flux/unitip.css');
+        
+        if (Flux::config('EnableReCaptcha')) {
+            $this->themeAssets->add_css('flux/flux/recaptcha.css');
+        }
+        
+        echo $this->themeAssets->compile_css();
+        ?>
 	</head>
 <body>
 
