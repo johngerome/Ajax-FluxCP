@@ -22,6 +22,7 @@ class Flux_TemplateAssets {
             'path' => NULL,
             'content' => $content
         );
+        return $this;
     }
 
     public function add_string_css($content)
@@ -30,6 +31,7 @@ class Flux_TemplateAssets {
             'path' => NULL,
             'content' => $content
         );
+        return $this;
     }
 
     public function add_js($path)
@@ -38,6 +40,7 @@ class Flux_TemplateAssets {
             'path' => $this->themePath.'/assets/js/'.$path,
             'content' => ''
         );
+        return $this;
     }
 
     public function add_css($path)
@@ -46,6 +49,7 @@ class Flux_TemplateAssets {
             'path' => $this->themePath.'/assets/css/'.$path,
             'content' => ''
         );
+        return $this;
     }
 
     private function combine_css($resources, $extension = 'css')
