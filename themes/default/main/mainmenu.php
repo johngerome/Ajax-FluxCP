@@ -19,7 +19,7 @@ $menuItems = $this->getMenuItems();
 				if ($menuItem['module'] == 'account' && $menuItem['action'] == 'logout'){
 					echo htmlspecialchars($menuItem['url']).'" ';
 				}else{
-					echo '#" onclick="load_page(\'' .htmlspecialchars($menuItem['url']).htmlspecialchars((Flux::config('UseCleanUrls'))? '/1':'&isAjax=1').'\');" '; 
+					echo '#" onclick="load_page(\'' .htmlspecialchars($menuItem['url'].'?&isAjax=1').'\');" '; 
 				}
 				?>>
 					<span><?php echo htmlspecialchars($menuItem['name']) ?></span>

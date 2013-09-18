@@ -1,6 +1,9 @@
 <?php
 require_once 'Flux/Config.php';
+require_once 'Flux/TemplateAssets.php';
 require_once 'Flux/Template.php';
+
+
 
 /**
  * The dispatcher is used to handle the current request to the application and
@@ -165,6 +168,7 @@ class Flux_Dispatcher {
 		);
 		$templateConfig = new Flux_Config($templateArray);
 		$template       = new Flux_Template($templateConfig);
+        
 		
 		// Default data available to all actions and views.
 		$data = array(
@@ -223,7 +227,7 @@ class Flux_Dispatcher {
 		
 		if (!$session->isLoggedIn()) {
 			if (Flux::config('UseCleanUrls')) {
-				$loginURL = sprintf('%s/%s/%s/%s/?return_url=%s',
+				$loginURL = sprintf('%s/%s/%s/?isAjax=%d&return_url=%s',
 					$baseURI, $loginModule, $loginAction, $isAjax, rawurlencode($_SERVER['REQUEST_URI']));
 			}
 			else {
